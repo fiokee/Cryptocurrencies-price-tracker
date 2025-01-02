@@ -28,6 +28,7 @@ const CryptoList = () => {
       try {
         const response = await axios.get<CoinData[]>(apiUrl);
         setData(response.data);
+        console.log(response.data)
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
