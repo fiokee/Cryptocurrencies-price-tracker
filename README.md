@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## Cryptocurrency Price Tracker
 
-First, run the development server:
+This project is a React-based cryptocurrency tracker that displays real-time data about various cryptocurrencies, including their prices, market capitalization, and percentage changes over different time periods. It features a search functionality to filter cryptocurrencies by name or symbol.
 
-```bash
+## Features
+- Live Cryptocurrency Data: Fetches real-time data from the CoinGecko API.
+
+- Search Functionality: Allows users to search for specific cryptocurrencies by name or symbol.
+
+- Responsive Design: Built with Tailwind CSS to ensure a responsive and visually appealing layout.
+
+- Auto-Refresh: Refreshes data every minute to provide up-to-date information.
+
+- User-friendly Table: Displays key information in a clean and interactive table format.
+
+## Prerequisites
+Before running the project, ensure you have the following:
+
+- Node.js installed on your system.
+
+- An API URL provided by CoinGecko. This should be set in your environment variables.
+
+## Installation
+1. Clone this repository:
+git clone https://github.com/fiokee/Cryptocurrencies-price-tracker.git
+
+2. Navigate into the project directory:
+cd mycrypto-price
+
+3. Install dependencies:
+npm install
+
+4. Set up the environment variable:
+
+- Create a .env.local file in the root directory.
+
+## Running the Project
+1. Start the development server:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Open your browser and navigate to:
+http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Code Overview
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Components
 
-## Learn More
+- CryptoList: The main component that:
 
-To learn more about Next.js, take a look at the following resources:
+- Fetches cryptocurrency data.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Displays it in a searchable and sortable table.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Refreshes data every minute.
 
-## Deploy on Vercel
+Key Functions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. useEffect:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Fetches data when the component mounts and sets up an interval to refresh data every minute.
+
+2. axios.get:
+
+- Fetches cryptocurrency data from the CoinGecko API.
+
+3. setInterval:
+
+- Ensures the data is periodically updated.
+
+4. filterData:
+
+- Filters the list of cryptocurrencies based on the user's search query.
+
+5. Utility Functions:
+
+- formatNumber: Formats large numbers into readable formats (e.g., million, billion).
+
+- formatPercent: Formats percentage changes and handles null values.
+
+
+
